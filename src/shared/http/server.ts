@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import routes from './routes';
@@ -10,7 +11,7 @@ app.use(express.json());
 
 app.use(routes);
 
-// middleware que recebe o error, se a instancia do error for da class AppError
+// middleware que recebe o erro, se a instancia do erro for da class AppError
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
     if (error instanceof AppError) {
@@ -19,7 +20,7 @@ app.use(
         message: error.message,
       });
     }
-    // caso o error seja do servidor
+    // caso o erro seja do servidor
     return response.status(500).json({
       status: 'error',
       message: 'Internal server error',
