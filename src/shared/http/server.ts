@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import routes from './routes';
 import AppError from './errors/AppError';
 // import do metodo create connection
@@ -16,6 +17,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
+
+// se for gerado errors na aplicação eles seram enviados para o celebrate
+app.use(errors());
 
 // middleware que recebe erro gerado pela aplicação, se a instancia do erro for da class AppError
 app.use(
