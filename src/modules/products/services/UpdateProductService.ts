@@ -3,7 +3,7 @@ import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/Product';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
 
-// Responsavel por retornar apenas um produto em especifico
+// update de services
 
 interface IRequest {
   id: string;
