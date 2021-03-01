@@ -10,7 +10,7 @@ interface IRequest {
 }
 
 class CreateUserService {
-  public async execution({ name, email, password }: IRequest): Promise<User> {
+  public async execute({ name, email, password }: IRequest): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
     // procurando p ver se algum usuario ja possui o email
     const emailExists = await usersRepository.findByEmail(email);
